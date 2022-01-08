@@ -6,7 +6,7 @@ class CreateEmployees < ActiveRecord::Migration[6.0]
       t.references :occupation, null: false, foreign_key: true
       t.date :birth_date, null: false
       t.date :admission_date, null: false
-      t.decimal :salary, null: false
+      t.decimal :salary, null: false, precision: 10, scale: 2
 
       t.timestamps
     end

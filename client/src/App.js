@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container } from '@mui/material';
 
-import Employees from './components/Employees/Employees';
+import EmployeesIndex from './components/Employees/Index';
 
 const App = () => (
   <Container maxWidth="lg" >
-    <Employees />
+    <EmployeesIndex  />
   </Container>  
 );
 export default App;

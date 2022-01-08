@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2022_01_07_023916) do
     t.bigint "occupation_id", null: false
     t.date "birth_date", null: false
     t.date "admission_date", null: false
-    t.decimal "salary", null: false
+    t.decimal "salary", precision: 10, scale: 2, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["occupation_id"], name: "index_employees_on_occupation_id"
