@@ -1,19 +1,40 @@
-import React from 'react';
-import { Container } from '@mui/material';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React, { Component } from 'react';
+import api from './api';
 
-import Occupations from './components/Occupations/Occupations';
-import Home from './components/Home/Home';
+class App extends Component {
 
-const App = () => (  
-  <BrowserRouter>
-      <Container maxWidth="lg">
-        <Switch>          
-          <Route path="/occupations" exact component={Occupations} />
-          <Route path="/" exact component={Home} />
-        </Switch>
-      </Container>
-  </BrowserRouter>
-);
+  state = {
+    occupations: [],
+  }
+
+  async componentDidMount() {
+    const response = await api.get('/occupations');
+
+    this.setState({ occupations: response.data });
+  }
+
+  render() {
+
+    const { occupations } = this.state;    
+
+    return (
+      <div>
+        <h1>Listar os Cargos</h1>
+        {occupations?.map(ocupation => (
+          <li key={ocupation.id}>
+            <h2>
+              <strong>Cargo: </strong>
+              {ocupation.description}
+            </h2>
+            <p>
+              {ocupation.activity}
+            </p>
+
+          </li>
+        ))}
+      </div>
+    );
+  };
+};
 
 export default App;

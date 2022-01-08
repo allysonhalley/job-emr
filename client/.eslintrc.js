@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   "extends": ["react-app"],
   "rules": {
   },
