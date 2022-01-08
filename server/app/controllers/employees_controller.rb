@@ -3,9 +3,11 @@ class EmployeesController < ApplicationController
 
   # GET /employees
   def index
+
+    # @employees = Employee.all
     @employees = Employee.all
 
-    render json: @employees
+    render json: @employees.to_json(include: :occupation)
   end
 
   # GET /employees/1

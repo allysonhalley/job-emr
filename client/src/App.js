@@ -1,40 +1,11 @@
-import React, { Component } from 'react';
-import api from './api';
+import React from 'react';
+import { Container } from '@mui/material';
 
-class App extends Component {
+import Employees from './components/Employees/Employees';
 
-  state = {
-    occupations: [],
-  }
-
-  async componentDidMount() {
-    const response = await api.get('/occupations');
-
-    this.setState({ occupations: response.data });
-  }
-
-  render() {
-
-    const { occupations } = this.state;    
-
-    return (
-      <div>
-        <h1>Listar os Cargos</h1>
-        {occupations?.map(ocupation => (
-          <li key={ocupation.id}>
-            <h2>
-              <strong>Cargo: </strong>
-              {ocupation.description}
-            </h2>
-            <p>
-              {ocupation.activity}
-            </p>
-
-          </li>
-        ))}
-      </div>
-    );
-  };
-};
-
+const App = () => (
+  <Container maxWidth="lg" >
+    <Employees />
+  </Container>  
+);
 export default App;
