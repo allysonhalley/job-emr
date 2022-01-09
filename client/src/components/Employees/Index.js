@@ -48,7 +48,7 @@ class EmployeesIndex extends Component {
                                     {employee.first_name} {employee.last_name}
                                 </Typography>
                                 <Divider />
-                                <Typography align="left"  >
+                                <Typography align="left" size="small" >
                                     Data de Nascimento:{moment(employee.birth_date).format("DD/MM/YYYY")}
                                 </Typography>
                                 <Typography align="left" >
